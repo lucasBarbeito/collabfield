@@ -16,6 +16,17 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap_form'
 
+gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+# factory_girl is for adding sample data
+gem 'factory_girl_rails'
+# rails-controller-testing gem is going to be required when we will test requests and responses
+gem 'rails-controller-testing'
+# headless gem is required to support headless drivers. poltergeist is a headless driver, that’s why we need this gem
+gem 'headless'
+# poltergeist driver gives the JavaScript support for your tests
+gem 'poltergeist'
+# database_cleaner is required to clean the test database after tests where JavaScript was executed.
+gem 'database_cleaner'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -58,6 +69,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
+  # # capybara is for simulating a user’s interaction with the app
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
