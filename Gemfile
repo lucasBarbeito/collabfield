@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap_form'
 
-gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+gem 'rspec-rails'
 # factory_girl is for adding sample data
 gem 'factory_girl_rails'
 # rails-controller-testing gem is going to be required when we will test requests and responses
@@ -24,7 +24,7 @@ gem 'rails-controller-testing'
 # headless gem is required to support headless drivers. poltergeist is a headless driver, that’s why we need this gem
 gem 'headless'
 # poltergeist driver gives the JavaScript support for your tests
-gem 'poltergeist'
+gem 'poltergeist', '~> 1.18', '>= 1.18.1'
 # database_cleaner is required to clean the test database after tests where JavaScript was executed.
 gem 'database_cleaner'
 
