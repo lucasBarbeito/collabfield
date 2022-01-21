@@ -15,6 +15,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap_form'
+gem 'faker'
+
 
 gem 'rspec-rails'
 # factory_girl is for adding sample data
