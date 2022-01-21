@@ -17,6 +17,8 @@ $(document).on('turbolinks:load', function() {
             });
         }
     }
+
+
     $('#feed').on( 'mouseenter', '.single-post-list', function() {
         $(this).css('border-color', randomColor());
     });
@@ -24,10 +26,11 @@ $(document).on('turbolinks:load', function() {
     $('#feed').on( 'mouseleave', '.single-post-list', function() {
         $(this).css('border-color', 'rgba(0, 0 , 0, 0.05)');
     });
+
 });
 
 var colorSet = randomColorSet();
-var mode = Math.floor(Math.random()*2);
+var mode = Math.floor(Math.random() * 2);
 
 // Randomly returns a color scheme
 function randomColorSet() {
@@ -41,6 +44,7 @@ function randomColorSet() {
     var randomSet = [colorSet1, colorSet2, colorSet3, colorSet4, colorSet5, colorSet6, colorSet7];
     return randomSet[Math.floor(Math.random() * randomSet.length )];
 }
+
 // Randomly returns a color from an array of colors
 function randomColor() {
     var color = colorSet[Math.floor(Math.random() * colorSet.length)];
