@@ -25,6 +25,10 @@ class PostsController < ApplicationController
     #o get and store posts inside the @posts instance variable,
     # get_posts method is used and then it is chained with a paginate method. paginate method comes from will_paginate gem
     @posts = get_posts.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'posts/posts_pagination_page' }
+    end
   end
 
   def get_posts

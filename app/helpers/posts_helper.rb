@@ -31,4 +31,14 @@ module PostsHelper
       'shared/empty_partial'
     end
   end
+
+  def update_pagination_partial_path
+    #Here the next_page method from the will_paginate gem is used, to determine if there are any more posts to load in the future or not.
+    if @posts.next_page
+      'posts/posts_pagination_page/update_pagination'
+    else
+      'posts/posts_pagination_page/remove_pagination'
+    end
+  end
+
 end
