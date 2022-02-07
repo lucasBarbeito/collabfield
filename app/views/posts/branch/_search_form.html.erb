@@ -1,0 +1,16 @@
+<div class="col-sm-12">
+  <%= form_tag(send("#{branch}_posts_path"),
+               :method => "get",
+               id: "search-form") do %>
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <%= text_field_tag  :search,
+                        params[:search],
+                        placeholder: search_placeholder,
+                        class: "form-control" %>
+    <%= render category_field_partial_path %>
+  <% end %>
+</div><!-- col-sm-12 -->
+
+<!--with the send method we dynamically generate a path to a specific PostsController’s  action, depending on a current branch.
+Also we send an extra data field  for the category if a specific category is selected. If a user has  selected a specific category,
+only search results from that category  will be returned.-->
