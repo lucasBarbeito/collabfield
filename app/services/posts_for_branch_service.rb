@@ -1,9 +1,9 @@
 class PostsForBranchService
 
   def initialize(params)
-    @branch = params[:action]
     @search = params[:search]
     @category = params[:category]
+    @branch = params[:branch]
   end
   # get posts depending on the request
   def call
