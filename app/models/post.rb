@@ -2,6 +2,10 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  validates :title, presence: true, length: { minimum: 5, maximum: 255 }
+  validates :content, presence: true, length: { minimum: 20, maximum: 1000 }
+  validates :category_id, presence: true
+
   #https://www.rubyguides.com/2019/10/scopes-in-ruby-on-rails/#:~:text=Scopes%20are%20custom%20queries%20that,lambda%2C%20which%20implements%20the%20query.
   default_scope -> { includes(:user).order(created_at: :desc) }
 
