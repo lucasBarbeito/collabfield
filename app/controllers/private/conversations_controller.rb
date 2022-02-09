@@ -9,10 +9,23 @@ class Private::ConversationsController < ApplicationController
       respond_to do |format|
         format.js {render partial: 'posts/show/contact_user/message_form/success' }
       end
+      add_to_conversations unless  already_added?
     else
       respond_to do |format|
         format.js {render partial: 'posts/show/contact_user/message_form/fail'}
       end
     end
   end
+
+  private
+
+  def add_to_conversations
+    session[:private_conversations] ||= []
+    session[:private_conversations] << @conversation.id
+  end
+
+  def already_added?
+    session[:private_conversations].include?(@conversation.id)
+  end
+
 end

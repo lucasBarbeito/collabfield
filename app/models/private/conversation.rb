@@ -12,6 +12,11 @@ class Private::Conversation < ApplicationRecord
       where(sender_id: user2_id, recipient_id: user1_id)
     )
   end
+
+  def opposed_user(user)
+    user == recipient ? sender : recipient
+  end
+
 end
 
 # class_name Specify the class name of the association. Use it only if that name can't be inferred from the association name.
@@ -19,3 +24,4 @@ end
 
 # The foreign_key is used to specify a name of association’s column in a database table.
 # A data column in a table is only created on the belongs_to association’s side, but to make the column recognizable, we’ve to define the foreign_key with same values on both models.
+
