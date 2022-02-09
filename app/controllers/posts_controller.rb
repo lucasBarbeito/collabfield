@@ -5,7 +5,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  end
+    if user_signed_in?
+      @message_has_been_sent = conversation_exist?
+    end  end
 
   def new
     @branch = params[:branch]
@@ -59,5 +61,9 @@ class PostsController < ApplicationController
   def post_params
     #The permit method is used to whitelist attributes of the object, so only these specified attributes are allowed to be passed.
     params.require(:post).permit(:content, :title, :category_id).merge(user_id: current_user.id)
+  end
+
+  def conversation_exist?
+    Private::Conversation.between_users(current_user.id, @post.user.id).present?
   end
 end
